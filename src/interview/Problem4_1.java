@@ -6,7 +6,7 @@ public class Problem4_1 {
         public int min, max;
     }
 
-    public boolean isBalanced(Node root) {
+    public boolean isBalanced(BNode root) {
         if (root == null) {
             return false;
         }
@@ -16,14 +16,14 @@ public class Problem4_1 {
         return Math.abs(size.max - size.min) <= 1;
     }
 
-    private TreeSize traverse(Node node, int depth) {
+    private TreeSize traverse(BNode BNode, int depth) {
         TreeSize left = new TreeSize();
-        left.min = (node.left() == null || node.right() == null) ? depth : Integer.MAX_VALUE;
+        left.min = (BNode.left() == null || BNode.right() == null) ? depth : Integer.MAX_VALUE;
         left.max = depth;
         TreeSize right = left;
 
-        if (node.left() != null) traverse(node.left(), depth + 1);
-        if (node.right() != null) traverse(node.right(), depth + 1);
+        if (BNode.left() != null) left = traverse(BNode.left(), depth + 1);
+        if (BNode.right() != null) right = traverse(BNode.right(), depth + 1);
 
         left.min = left.min < right.min ? left.min : right.min;
         left.max = left.max > right.max ? left.max : right.max;

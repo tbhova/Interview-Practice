@@ -7,61 +7,61 @@ import org.junit.Test;
 
 public class Problem4_1Test {
 
-    static private Node balancedTree, unbalancedTree;
+    static private BNode balancedTree, unbalancedTree;
 
     @Before
     public void setupBalanced() {
-        balancedTree = new Node();
-        Node cursor = balancedTree;
+        balancedTree = new BNode();
+        BNode cursor = balancedTree;
 
-        cursor.addLeft(new Node());
+        cursor.addLeft(new BNode());
         cursor = cursor.left();
 
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
 
         cursor = balancedTree;
-        cursor.addRight(new Node());
+        cursor.addRight(new BNode());
         cursor = cursor.right();
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
         cursor = cursor.left();
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
 
         cursor = balancedTree.right();
         cursor = cursor.right();
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
     }
 
     @Before
     public void setupUnbalanced() {
-        unbalancedTree = new Node();
-        Node cursor = unbalancedTree;
+        unbalancedTree = new BNode();
+        BNode cursor = unbalancedTree;
 
-        cursor.addLeft(new Node());
+        cursor.addLeft(new BNode());
         cursor = cursor.left();
 
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
 
         cursor = unbalancedTree;
-        cursor.addRight(new Node());
+        cursor.addRight(new BNode());
         cursor = cursor.right();
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
         cursor = cursor.left();
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
 
         cursor = unbalancedTree.right();
         cursor = cursor.right();
-        cursor.addLeft(new Node());
-        cursor.addRight(new Node());
+        cursor.addLeft(new BNode());
+        cursor.addRight(new BNode());
 
         cursor = cursor.right();
-        cursor.addRight(new Node());
+        cursor.addRight(new BNode());
     }
 
     @Test

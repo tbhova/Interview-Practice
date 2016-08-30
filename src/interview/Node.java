@@ -1,32 +1,41 @@
-package interview;
+package interview; /**
+ * Created by Tyler on 8/30/2016.
+ */
+
+import lombok.Getter;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class Node {
-    private Node left = null, right = null;
 
-    Node() {};
+    @Getter
+    private List<Node> children = new ArrayList<Node>();
 
-    Node(Node left, Node right) {
-        this.left = left;
-        this.right = right;
+    @Getter
+    private boolean visited = false;
+
+    @Getter
+    private Object data;
+
+    public Node(Object data) {
+        this.data = data;
     }
 
-    public Node left() { return left; }
-    public Node right() { return right; }
-
-    public void addLeft(Node leftNode) {
-        left = leftNode;
+    public void addChild(Node child) {
+        children.add(child);
     }
 
-    public void addRight(Node rightNode) {
-        right = rightNode;
+    public void visited() {
+        visited = true;
     }
 
-    public void newLeft() {
-        left = new Node();
+    @Override
+    public boolean equals(Object other) {
+        if (object == null) { return false; }
+        if (object == this) { return true; }
+        if (other.getClass() != this.getClass()) {
+            return false;
+        }
+        Node rhs = (Node)other;
+        return new EqualsBuilder().append(children, rhs.children).append(data, rhs.data).append(visited, rhs.visited).isEquals();
     }
-
-    public void newRight() {
-        right = new Node();
-    }
-
 }
