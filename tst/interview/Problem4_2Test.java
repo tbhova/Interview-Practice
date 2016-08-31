@@ -14,13 +14,12 @@ import static org.junit.Assert.*;
  * Created by Tyler on 8/30/2016.
  */
 public class Problem4_2Test {
-    private Integer id = 0;
     private List<Node> nodes = new ArrayList<Node>();
 
     @Before
     public void buildGraph() {
         for (int i = 0; i < 5; i++) {
-            nodes.add(new Node(++id));
+            nodes.add(new Node());
         }
 
         //A to E
@@ -45,69 +44,38 @@ public class Problem4_2Test {
         current.addLink(nodes.get(3));
     }
 
-    private void reset() {
-        for (Node node : nodes) {
-            node.reset();
-        }
-    }
-
     @Test
     public void testIsRoute() {
         Problem4_2 pr = new Problem4_2();
 
         assertThat(pr.isRoute(nodes.get(0), nodes.get(0))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(0), nodes.get(1))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(0), nodes.get(2))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(0), nodes.get(3))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(0), nodes.get(4))).isTrue();
-        reset();
 
         assertThat(pr.isRoute(nodes.get(1), nodes.get(0))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(1), nodes.get(1))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(1), nodes.get(2))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(1), nodes.get(3))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(1), nodes.get(4))).isTrue();
-        reset();
 
         assertThat(pr.isRoute(nodes.get(2), nodes.get(0))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(2), nodes.get(1))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(2), nodes.get(2))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(2), nodes.get(3))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(2), nodes.get(4))).isTrue();
-        reset();
 
         assertThat(pr.isRoute(nodes.get(3), nodes.get(0))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(3), nodes.get(1))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(3), nodes.get(2))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(3), nodes.get(3))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(3), nodes.get(4))).isFalse();
-        reset();
 
         assertThat(pr.isRoute(nodes.get(4), nodes.get(0))).isFalse();
-        reset();
         assertThat(pr.isRoute(nodes.get(4), nodes.get(1))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(4), nodes.get(2))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(4), nodes.get(3))).isTrue();
-        reset();
         assertThat(pr.isRoute(nodes.get(4), nodes.get(4))).isTrue();
-        reset();
     }
 }

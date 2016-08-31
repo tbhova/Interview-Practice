@@ -4,6 +4,8 @@ package interview; /**
 
 import lombok.Getter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -12,23 +14,15 @@ public class Node {
     @Getter
     private List<Node> children = new ArrayList<Node>();
 
-    @Getter
-    private boolean visited = false;
+    private static int staticID = 0;
 
-    @Getter
-    private Object data;
+    private int id = ++staticID;
 
-    public Node(Object data) {
-        this.data = data;
-    }
+    public Node() { }
 
     public void addLink(Node node) {
         children.add(node);
     }
-
-    public void setVisited() { visited = true; }
-
-    public void reset() { visited = false; }
 
     @Override
     public boolean equals(Object other) {
@@ -38,6 +32,11 @@ public class Node {
             return false;
         }
         Node rhs = (Node)other;
-        return new EqualsBuilder().append(data, rhs.data).append(visited, rhs.visited).append(children, rhs.children).isEquals();
+        return new EqualsBuilder().append(id, rhs.id).isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(id).hashCode();
     }
 }
