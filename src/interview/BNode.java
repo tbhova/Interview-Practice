@@ -1,11 +1,18 @@
 package interview;
 
+import lombok.Getter;
+
 public class BNode {
     private BNode left = null, right = null;
 
-    BNode() {};
+    @Getter
+    private Integer value = 0;
 
-    BNode(BNode left, BNode right) {
+    public BNode() {};
+
+    public BNode(Integer value) { this.value = value; }
+
+    public BNode(BNode left, BNode right) {
         this.left = left;
         this.right = right;
     }
