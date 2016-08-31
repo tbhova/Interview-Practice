@@ -3,6 +3,7 @@ package interview;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * Created by Tyler on 8/31/2016.
@@ -28,5 +29,13 @@ public class LLNode {
         if (next == null) return false;
         if (next.equals(node)) return true;
         return next.contains(node);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null || other.getClass() != this.getClass()) return false;
+        if (other == this) return true;
+        LLNode rhs = (LLNode)other;
+        return new EqualsBuilder().append(data, rhs.data).append(next, rhs.next).isEquals();
     }
 }

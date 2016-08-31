@@ -45,13 +45,13 @@ public class Problem4_4Test {
         LLNode tmp = new LLNode(2);
         expected.add(new LLNode(11, tmp));
 
-        tmp = new LLNode(14);
+        tmp = new LLNode(7);
         tmp = new LLNode(6, tmp);
-        expected.add(new LLNode(7, tmp));
+        expected.add(new LLNode(14, tmp));
 
-        tmp = new LLNode(1);
+        tmp = new LLNode(8);
         tmp = new LLNode(9, tmp);
-        expected.add(new LLNode(8, tmp));
+        expected.add(new LLNode(1, tmp));
 
         expected.add(new LLNode(3));
     }
@@ -59,7 +59,8 @@ public class Problem4_4Test {
     @Test
     public void listifyTest() throws Exception {
         assertThat(Problem4_4.listify(null)).isEmpty();
-        assertThat(Problem4_4.listify(root)).isEqualTo(expected);
+        List<LLNode> actual = Problem4_4.listify(root);
+        assertThat(actual).isEqualTo(expected);
     }
 
 }
