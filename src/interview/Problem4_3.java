@@ -9,14 +9,17 @@ public class Problem4_3 {
 
     public static BNode createBST(List<Integer> array) {
         if (array == null || array.size() == 0) return null;
+        return createBST(array, 0 , array.size()-1);
+    }
+    public static BNode createBST(List<Integer> array, int start, int end) {
+        if (start > end) return null;
 
-        int mid = array.size()/2;
+        int size = (end - start + 1);
+        int mid = start + (size / 2);
         BNode root = new BNode(array.get(mid));
 
-        List<Integer> left = mid == 0 ? null : array.subList(0, mid);
-        List<Integer> right = mid == array.size() -1 ? null : array.subList(mid + 1, array.size());
-        root.addLeft(createBST(left));
-        root.addRight(createBST(right));
+        root.addLeft(createBST(array, start, mid - 1));
+        root.addRight(createBST(array, mid + 1, end));
         return root;
     }
 }
