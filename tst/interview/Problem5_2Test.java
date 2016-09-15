@@ -3,8 +3,6 @@ package interview;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Tyler on 9/5/2016.
  */
