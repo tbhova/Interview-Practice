@@ -51,3 +51,20 @@ Network Trash Folder
 Temporary Items
 .apdisk
 *.name
+
+# Dolphin
+.directory
+
+# CMake Files
+CMakeFiles
+CMakeCache.txt
+CTestTestfile.cmake
+DartConfiguration.tcl
+Cpp/Cpp
+Cpp/Makefile
+Cpp/UnitTests
+Cpp/cmake_install.cmake
+Cpp/*.pc
+googletest-build
+googletest-download
+googletest-src
