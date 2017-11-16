@@ -68,3 +68,5 @@ Cpp/*.pc
 googletest-build
 googletest-download
 googletest-src
+
+*.cbp
