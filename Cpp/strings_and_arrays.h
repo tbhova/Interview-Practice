@@ -5,10 +5,8 @@
 
 using std::string;
 
-class StringsAndArrays {
- public:
- bool IsUnique(const string& s);
-};
+bool IsUnique(const string& s);
 
+void Reverse(string& in);
 
 #endif //TEST_STRINGS_AND_ARRAYS_H
