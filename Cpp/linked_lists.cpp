@@ -24,3 +24,28 @@ void RemoveDuplicates(Node<int>* head) {
     ptr = ptr->next;
   }
 }
+
+void RemoveDuplicatesNoBuffer(Node<int>* head) {
+  if (head == nullptr || head->next == nullptr) {
+    return;
+  }
+  Node<int>* ptr_last = head;
+  Node<int>* ptr = head->next;
+  while (ptr != nullptr) {
+    Node<int>* iter = head;
+    bool found = false;
+    while (iter != ptr) {
+      if (iter->data == ptr->data) {
+        // delete ptr
+        ptr_last->next = ptr->next;
+        found = true;
+        break;
+      }
+      iter = iter->next;
+    }
+    if (!found) {
+      ptr_last = ptr;
+    }
+    ptr = ptr->next;
+  }
+}

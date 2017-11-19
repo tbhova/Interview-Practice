@@ -13,5 +13,7 @@ class Node {
 
 void RemoveDuplicates(Node<int>* head);
 
+void RemoveDuplicatesNoBuffer(Node<int>* head);
+
 
 #endif //TEST_LINKED_LISTS_H

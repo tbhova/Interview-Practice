@@ -8,7 +8,7 @@
 using ::testing::IsNull;
 using ::testing::Eq;
 
-TEST(Problem1_1, Test) {
+TEST(Problem1_1, RemoveDuplicates) {
   Node<int>* ptr = nullptr;
   RemoveDuplicates(ptr);
 
@@ -31,6 +31,33 @@ TEST(Problem1_1, Test) {
   ptr->data = 1;
 
   RemoveDuplicates(&head);
+  EXPECT_THAT(head.next->next, IsNull());
+  EXPECT_THAT(head.next->data, Eq(-1));
+}
+
+TEST(Problem1_1, RemoveDuplicatesNoBuffer) {
+  Node<int>* ptr = nullptr;
+  RemoveDuplicatesNoBuffer(ptr);
+
+  Node<int> head;
+  head.data = 1;
+  head.next = new Node<int>;
+  ptr = head.next;
+  ptr->data = -1;
+
+  ptr->next = new Node<int>;
+  ptr = ptr->next;
+  ptr->data = 1;
+
+  ptr->next = new Node<int>;
+  ptr = ptr->next;
+  ptr->data = 1;
+
+  ptr->next = new Node<int>;
+  ptr = ptr->next;
+  ptr->data = 1;
+
+  RemoveDuplicatesNoBuffer(&head);
   EXPECT_THAT(head.next->next, IsNull());
   EXPECT_THAT(head.next->data, Eq(-1));
 }
