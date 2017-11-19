@@ -3,7 +3,7 @@ project(Cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCE_FILES main.cpp strings_and_arrays.cpp strings_and_arrays.h)
+set(SOURCE_FILES main.cpp strings_and_arrays.cpp strings_and_arrays.h linked_lists.cpp linked_lists.h)
 add_executable(Cpp ${SOURCE_FILES})
 
 project(test)
@@ -23,10 +23,10 @@ download_project(
 )
 
 set(test_SOURCES
-        g_test_main.cpp strings_and_arrays.cpp)
+        g_test_main.cpp strings_and_arrays.cpp linked_lists.cpp)
 
 set(test_HEADERS
-        strings_and_arrays_test.hpp strings_and_arrays.h)
+        strings_and_arrays_test.hpp strings_and_arrays.h linked_lists.h linked_lists_test.hpp)
 
 set(CMAKE_PREFIX_PATH
         ${CMAKE_PREFIX_PATH}

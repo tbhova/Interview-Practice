@@ -1,7 +1,8 @@
+#include "strings_and_arrays.h"
 
 #include <unordered_set>
 #include <bits/unordered_set.h>
-#include "strings_and_arrays.h"
+
 
 bool IsUnique(const string &s) {
   std::unordered_set<char> seen;
