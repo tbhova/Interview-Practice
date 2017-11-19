@@ -15,5 +15,6 @@ void RemoveDuplicates(Node<int>* head);
 
 void RemoveDuplicatesNoBuffer(Node<int>* head);
 
+const Node<int>* nthNodeRec(const Node<int>& head, const int n);
 
 #endif //TEST_LINKED_LISTS_H

@@ -49,3 +49,22 @@ void RemoveDuplicatesNoBuffer(Node<int>* head) {
     ptr = ptr->next;
   }
 }
+
+const Node<int>* GetNodeRec(const Node<int>* node, const int n, int* depth) {
+  if (node == nullptr) {
+    return node;
+  }
+  const Node<int>* ret = GetNodeRec(node->next, n, depth);
+  if (ret == nullptr) {
+    if (*depth == n) {
+      return node;
+    }
+    (*depth)++;
+  }
+  return ret;
+}
+
+const Node<int>* nthNodeRec(const Node<int>& head, const int n) {
+  int depth = 0;
+  return GetNodeRec(&head, n, &depth);
+}
