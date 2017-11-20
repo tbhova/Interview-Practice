@@ -68,3 +68,22 @@ const Node<int>* nthNodeRec(const Node<int>& head, const int n) {
   int depth = 0;
   return GetNodeRec(&head, n, &depth);
 }
+
+const Node<int>* nthNode(const Node<int>& head, const int n) {
+  auto ptr = (Node<int>*)&head;
+  auto back_ptr = (Node<int>*)&head;
+  int depth = 0;
+
+  while (ptr != nullptr) {
+    if (depth > n) {
+      back_ptr = back_ptr->next;
+    }
+    depth++;
+    ptr = ptr->next;
+  }
+
+  if (depth <= n) {
+    return nullptr;
+  }
+  return back_ptr;
+}

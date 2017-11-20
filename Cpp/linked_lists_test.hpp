@@ -96,4 +96,40 @@ TEST(Problem1_2, GetNthNodeRec) {
   EXPECT_THAT(nthNodeRec(head, -1), IsNull());
 }
 
+TEST(Problem1_2, GetNthNode) {
+  Node<int> head;
+  head.data = 1;
+  ASSERT_THAT(nthNode(head, 0), Not(IsNull()));
+  EXPECT_THAT(nthNode(head, 0)->data, Eq(1));
+
+  head.next = new Node<int>;
+  Node<int>* ptr = head.next;
+  ptr->data = 2;
+
+  ptr->next = new Node<int>;
+  ptr = ptr->next;
+  ptr->data = 3;
+
+  ptr->next = new Node<int>;
+  ptr = ptr->next;
+  ptr->data = 4;
+
+  ptr->next = new Node<int>;
+  ptr = ptr->next;
+  ptr->data = 5;
+
+  ASSERT_THAT(nthNode(head, 0), Not(IsNull()));
+  ASSERT_THAT(nthNode(head, 1), Not(IsNull()));
+  ASSERT_THAT(nthNode(head, 2), Not(IsNull()));
+  ASSERT_THAT(nthNode(head, 3), Not(IsNull()));;
+  ASSERT_THAT(nthNode(head, 4), Not(IsNull()));
+  EXPECT_THAT(nthNode(head, 0)->data, Eq(5));
+  EXPECT_THAT(nthNode(head, 1)->data, Eq(4));
+  EXPECT_THAT(nthNode(head, 2)->data, Eq(3));
+  EXPECT_THAT(nthNode(head, 3)->data, Eq(2));
+  EXPECT_THAT(nthNode(head, 4)->data, Eq(1));
+  EXPECT_THAT(nthNode(head, 5), IsNull());
+  EXPECT_THAT(nthNode(head, -1), IsNull());
+}
+
 #endif //TEST_LINKED_LISTS_TEST_HPP
