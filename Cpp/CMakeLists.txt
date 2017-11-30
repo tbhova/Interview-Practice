@@ -20,10 +20,10 @@ download_project(
 )
 
 set(test_SOURCES
-        g_test_main.cpp strings_and_arrays.cpp linked_lists.cpp)
+        g_test_main.cpp strings_and_arrays.cpp linked_lists.cpp string_permute.cpp string_permute_test.hpp)
 
 set(test_HEADERS
-        strings_and_arrays_test.hpp strings_and_arrays.h linked_lists.h linked_lists_test.hpp)
+        strings_and_arrays_test.hpp strings_and_arrays.h linked_lists.h linked_lists_test.hpp string_permute.h)
 
 set(CMAKE_PREFIX_PATH
         ${CMAKE_PREFIX_PATH}
