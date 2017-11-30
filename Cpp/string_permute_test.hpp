@@ -31,6 +31,12 @@ namespace {
 
    EXPECT_TRUE(Permute("abb", &out));
    EXPECT_THAT(out, StrEq("bab"));
+
+   EXPECT_TRUE(Permute("abbaab", &out));
+   EXPECT_THAT(out, StrEq("ababab"));
+
+   EXPECT_TRUE(Permute("abbaabccdde", &out));
+   EXPECT_THAT(out, StrEq("abababccdde"));
  }
 
 }
