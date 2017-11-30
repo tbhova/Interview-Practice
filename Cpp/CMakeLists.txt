@@ -3,9 +3,6 @@ project(Cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCE_FILES main.cpp strings_and_arrays.cpp strings_and_arrays.h linked_lists.cpp linked_lists.h)
-add_executable(Cpp ${SOURCE_FILES})
-
 project(test)
 
 include(CTest)
