@@ -35,16 +35,18 @@ bool Permute(const std::string& in, std::string* out) {
   q.pop();
   last.count--;
 
-  while (q.top().count) {
-    *out += q.top().c;
+  while (!q.empty()) {
+    output += q.top().c;
     Letter tmp = q.top();
     q.pop();
-    q.push(last);
+    if (last.count) {
+      q.push(last);
+    }
     last = tmp;
     last.count--;
   }
 
-  if (q.top().count) {
+  if (last.count) {
     return false;
   } else {
     *out = output;
