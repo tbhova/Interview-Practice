@@ -30,9 +30,6 @@ set(CMAKE_PREFIX_PATH
         ${THIRDPARTY_DIR}/protobuf-2.6.1
         )
 
-find_package(Protobuf REQUIRED)
-include_directories(${PROTOBUF_INCLUDE_DIRS})
-
 add_executable(UnitTests ${test_SOURCES} ${test_HEADERS})
 
 target_link_libraries(UnitTests gtest gmock ${PROTOBUF_LIBRARIES})
