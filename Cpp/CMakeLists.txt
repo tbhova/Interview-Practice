@@ -26,9 +26,7 @@ set(test_HEADERS
         strings_and_arrays_test.hpp strings_and_arrays.h linked_lists.h linked_lists_test.hpp string_permute.h stacks_and_queues.h stacks_and_queues_test.hpp)
 
 set(CMAKE_PREFIX_PATH
-        ${CMAKE_PREFIX_PATH}
-        ${THIRDPARTY_DIR}/protobuf-2.6.1
-        )
+        ${CMAKE_PREFIX_PATH})
 
 add_executable(UnitTests ${test_SOURCES} ${test_HEADERS})
 
