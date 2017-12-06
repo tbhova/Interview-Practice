@@ -96,3 +96,28 @@ int BsRec(const std::vector<int>& v, int start, int stop, int n) {
 int BinarySearch(const std::vector<int>& v, int n) {
   return BsRec(v, 0, v.size() - 1, n);
 }
+
+int FindPivot(const std::vector<int>& v, int start, int stop) {
+  if (start >= stop) return -1;
+  if (start + 1 == stop) {
+    return v.at(start) > v.at(stop) ? start : -1;
+  }
+  int mid = (start + stop) / 2;
+  if (v.at(mid) > v.at(stop)) {
+    return FindPivot(v, mid, stop);
+  } else if (v.at(mid) < v.at(start)) {
+    return FindPivot(v, start, mid);
+  } else {
+    // TODO optimize w/ equals to
+    int right = FindPivot(v, mid, stop);
+    if (right != -1) return right;
+    return FindPivot(v, start, mid);
+  }
+}
+
+int RotBinSearch(const std::vector<int>& v, int n) {
+  int pivot = FindPivot(v, 0, v.size() - 1);
+  int left = BsRec(v, 0, pivot, n);
+  if (left != -1) return left;
+  return BsRec(v, pivot + 1, v.size() - 1, n);
+}

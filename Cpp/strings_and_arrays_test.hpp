@@ -84,6 +84,41 @@ namespace {
     EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10, 11}, 11), Eq(7));
   }
 
+  TEST(StringsArraysTest, TestRotatedBinarySearch) {
+    EXPECT_THAT(RotBinSearch(std::vector<int>(), -7), Eq(-1));
+
+    EXPECT_THAT(RotBinSearch(std::vector<int>{9}, 1), Eq(-1));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{9}, 9), Eq(0));
+
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, -7), Eq(-1));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 1), Eq(0));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 2), Eq(1));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 4), Eq(2));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 5), Eq(3));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 6), Eq(4));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 8), Eq(5));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 10), Eq(6));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10, 11}, 10), Eq(6));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10, 11}, 11), Eq(7));
+
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, -8), Eq(-1));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 15), Eq(0));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8}, 20), Eq(1));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 25), Eq(2));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, -7), Eq(3));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8}, 1), Eq(4));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 2), Eq(5));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 4), Eq(6));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 5), Eq(7));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 6), Eq(8));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 8), Eq(9));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{15, 20, 25, -7, 1, 2, 4, 5, 6, 8, 10}, 10), Eq(10));
+
+
+    EXPECT_THAT(RotBinSearch(std::vector<int>{2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}, 1), Eq(1));
+    EXPECT_THAT(RotBinSearch(std::vector<int>{2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}, 0), Eq(-1));
+  }
+
 }
 
 #endif //TEST_TEST_HPP

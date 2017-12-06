@@ -13,6 +13,10 @@ bool IsUnique(const string& s);
 
 void Reverse(string& in);
 
-int BinarySearch(const std::vector<int>& a, int n);
+// return index of element with n, vector v is sorted.
+int BinarySearch(const std::vector<int>& v, int n);
+
+// return index of element with value n. v is sorted but rotated.
+int RotBinSearch(const std::vector<int>& v, int n);
 
 #endif //TEST_STRINGS_AND_ARRAYS_H
