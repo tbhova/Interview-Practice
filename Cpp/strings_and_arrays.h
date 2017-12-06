@@ -5,6 +5,9 @@
 
 using std::string;
 
+bool Permute(const std::string& in, std::string* out);
+
+// Problem 1.1
 bool IsUnique(const string& s);
 
 void Reverse(string& in);

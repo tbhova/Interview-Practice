@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 #include "strings_and_arrays_test.hpp"
 #include "linked_lists_test.hpp"
-#include "string_permute_test.hpp"
 #include "stacks_and_queues_test.hpp"
 #include "trees_and_graphs_test.hpp"
 

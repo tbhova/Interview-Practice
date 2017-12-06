@@ -19,7 +19,7 @@ namespace {
     EXPECT_FALSE(IsUnique("a" + unique));
   }
 
-  TEST(Problem1_2, Reverse) {
+  TEST(StringTest, Reverse) {
     string in = "";
     Reverse(in);
     EXPECT_THAT(in, StrEq(""));
@@ -34,6 +34,36 @@ namespace {
     EXPECT_THAT(in3, StrEq("trewq"));
     Reverse(in3);
     EXPECT_THAT(in3, in3_og);
+  }
+
+  TEST(StringPermuteTest, TestPermutations) {
+    EXPECT_FALSE(Permute("", nullptr));
+    std::string out;
+    EXPECT_TRUE(Permute("", &out));
+    EXPECT_THAT(out, StrEq(""));
+
+    EXPECT_FALSE(Permute("aa", &out));
+    EXPECT_FALSE(Permute("aaa", &out));
+    EXPECT_FALSE(Permute("abbb", &out));
+    EXPECT_FALSE(Permute("bababb", &out));
+
+    EXPECT_TRUE(Permute("abc", &out));
+    EXPECT_THAT(out, StrEq("abc"));
+
+    EXPECT_TRUE(Permute("abc", &out));
+    EXPECT_THAT(out, StrEq("abc"));
+
+    EXPECT_TRUE(Permute("aab", &out));
+    EXPECT_THAT(out, StrEq("aba"));
+
+    EXPECT_TRUE(Permute("abb", &out));
+    EXPECT_THAT(out, StrEq("bab"));
+
+    EXPECT_TRUE(Permute("abbaab", &out));
+    EXPECT_THAT(out, StrEq("ababab"));
+
+    EXPECT_TRUE(Permute("abbaabccdde", &out));
+    EXPECT_THAT(out, StrEq("abcdabedacb"));
   }
 
 }
