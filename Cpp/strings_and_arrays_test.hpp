@@ -11,7 +11,7 @@ namespace {
   using ::testing::SizeIs;
   using ::testing::StrEq;
 
-  TEST(Problem1_1, TestIsUnique) {
+  TEST(StringsArraysTest, TestIsUnique) {
     EXPECT_TRUE(IsUnique(""));
     const string unique = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890-*/\\[]";
     EXPECT_TRUE(IsUnique(unique));
@@ -19,7 +19,7 @@ namespace {
     EXPECT_FALSE(IsUnique("a" + unique));
   }
 
-  TEST(StringTest, Reverse) {
+  TEST(StringsArraysTest, Reverse) {
     string in = "";
     Reverse(in);
     EXPECT_THAT(in, StrEq(""));
@@ -36,7 +36,7 @@ namespace {
     EXPECT_THAT(in3, in3_og);
   }
 
-  TEST(StringPermuteTest, TestPermutations) {
+  TEST(StringsArraysTest, TestPermutations) {
     EXPECT_FALSE(Permute("", nullptr));
     std::string out;
     EXPECT_TRUE(Permute("", &out));
@@ -64,6 +64,24 @@ namespace {
 
     EXPECT_TRUE(Permute("abbaabccdde", &out));
     EXPECT_THAT(out, StrEq("abcdabedacb"));
+  }
+
+  TEST(StringsArraysTest, TestBinarySearch) {
+    EXPECT_THAT(BinarySearch(std::vector<int>(), -7), Eq(-1));
+
+    EXPECT_THAT(BinarySearch(std::vector<int>{9}, 1), Eq(-1));
+    EXPECT_THAT(BinarySearch(std::vector<int>{9}, 9), Eq(0));
+
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, -7), Eq(-1));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 1), Eq(0));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 2), Eq(1));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 4), Eq(2));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 5), Eq(3));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 6), Eq(4));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 8), Eq(5));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10}, 10), Eq(6));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10, 11}, 10), Eq(6));
+    EXPECT_THAT(BinarySearch(std::vector<int>{1, 2, 4, 5, 6, 8, 10, 11}, 11), Eq(7));
   }
 
 }

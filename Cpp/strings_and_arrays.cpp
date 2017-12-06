@@ -80,3 +80,19 @@ void Reverse(string& in) {
   }
 }
 
+int BsRec(const std::vector<int>& v, int start, int stop, int n) {
+  if (stop < start) return -1;
+
+  int mid = (start + stop) / 2;
+
+  if (v.at(mid) == n) return mid;
+  else if (v.at(mid) > n) {
+    return BsRec(v, start, mid - 1, n);
+  } else {
+    return BsRec(v, mid + 1, stop, n);
+  }
+}
+
+int BinarySearch(const std::vector<int>& v, int n) {
+  return BsRec(v, 0, v.size() - 1, n);
+}
