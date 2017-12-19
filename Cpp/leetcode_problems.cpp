@@ -20,7 +20,7 @@ bool IsPalindrome(std::string& s) {
   return !s.empty();
 }
 
-std::string LongestPalindrome(std::string s) {
+std::string LongestPalindromeSlow(std::string s) {
   for (int i = 0; i < s.size(); ++i) {
     for (int j = 0; j <= i; ++j) {
       std::string ss = s.substr(j, s.size() - i);
@@ -30,4 +30,18 @@ std::string LongestPalindrome(std::string s) {
     }
   }
   return "";
+}
+
+std::string LongestPalindrome(std::string s) {
+  int start = 0, len = 1;
+  for (int i = 0; i < s.size(); ++i) {
+    int l = i, r = i;
+    while (r < s.size() - 1 && s[r] == s[r + 1]) { ++r; }
+    while (l > 0 && r < s.size() - 1 && s[l-1] == s[r+1]) { --l; ++r; }
+    if (r - l + 1 > len) {
+      len = r - l + 1;
+      start = l;
+    }
+  }
+  return s.empty() ? "" : s.substr(start, len);
 }

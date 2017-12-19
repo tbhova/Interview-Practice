@@ -10,7 +10,7 @@ using ::testing::AnyOf;
 
 TEST(LeetcodeTest, TestPali) {
   EXPECT_THAT(LongestPalindrome("babad"), AnyOf(StrEq("bab"), StrEq("aba")));
-  EXPECT_THAT(LongestPalindrome("cbbd"), StrEq("bb"));
+  EXPECT_THAT(LongestPalindrome("cbbbb"), StrEq("bbbb"));
   EXPECT_THAT(LongestPalindrome("ccbbcc"), StrEq("ccbbcc"));
   EXPECT_THAT(LongestPalindrome("a"), StrEq("a"));
   EXPECT_THAT(LongestPalindrome(""), StrEq(""));
