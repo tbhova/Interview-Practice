@@ -17,4 +17,10 @@ TEST(LeetcodeTest, TestPali) {
   EXPECT_THAT(LongestPalindrome("abcda"), AnyOf(StrEq("a"), StrEq("b"), StrEq("c"), StrEq("d")));
 }
 
+TEST(LeetcodeTest, TestConvertZigZag) {
+  EXPECT_THAT(convert("PAYPALISHIRING", 3), StrEq("PAHNAPLSIIGYIR"));
+  EXPECT_THAT(convert("AB", 4), StrEq("AB"));
+  EXPECT_THAT(convert("AB", 1), StrEq("AB"));
+}
+
 #endif //TEST_LEETCODE_PROBLEMS_TEST_HPP

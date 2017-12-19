@@ -45,3 +45,22 @@ std::string LongestPalindrome(std::string s) {
   }
   return s.empty() ? "" : s.substr(start, len);
 }
+
+std::string convert(std::string s, int numRows) {
+  std::vector<std::string> lines;
+  lines.resize(numRows);
+  int line_n = 0;
+  bool down = true;
+  for (int i = 0; i < s.size(); ++i) {
+    lines[line_n] += s[i];
+    if (numRows == 1) { continue; }
+    if (line_n == 0) { down = true; }
+    else if (line_n == numRows - 1) { down = false; }
+    line_n += down ? 1 : -1;
+  }
+  std::string r = "";
+  for (std::string& line : lines) {
+    r += line;
+  }
+  return r;
+}
